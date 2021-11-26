@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+    <title>cats!!!</title>
+    </head>
+<body style="background-color:rgb(196, 114, 221);">
+    
+ <center>   <p id="fun"></p>
+    <p id="man">funny cat pictures for sad people</p>
+
+    <img id="bild" src="/Pics/cutecats.jpg">
+
+<script>
+ 
+ 
+function random() {let x = Math.floor(Math.random() * 10);
+
+switch(x){
+
+case 0: document.getElementById("bild").src="/Pics/1.jpg";
+break;
+case 1: document.getElementById("bild").src="/Pics/2.jpg";
+break;
+case 2: document.getElementById("bild").src="/Pics/3.jpg";
+break;
+case 3: document.getElementById("bild").src="/Pics/4.jpg";
+break;
+case 4: document.getElementById("bild").src="/Pics/5.jpg";
+break;
+case 5: document.getElementById("bild").src="/Pics/6.jpg";
+break;
+case 6: document.getElementById("bild").src="/Pics/7.jpg";
+break;
+case 7: document.getElementById("bild").src="/Pics/8.jpg";
+break;
+case 8: document.getElementById("bild").src="/Pics/9.jpg";
+break;
+case 9: document.getElementById("bild").src="/Pics/10.jpg";
+break;
+}
+
+console.log(x); }
+
+ </script>
+ <br>
+<button type="button" onclick="random()" > click me </button>
+
+
+</center>
+
+</body>
+</html>
