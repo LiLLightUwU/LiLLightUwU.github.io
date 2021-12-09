@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+    <head>
+    <title>game</title>
+    </head>
+<body style="background-color:black;">
+    
+   <center> <canvas id="myCanvas" width="800" height="500" style="border:2px solid white;"></canvas>
+
+<br><br><br>
+<p style="color:white">Controls: Shift + CTRL (left) and arrow up and down (right)</p>
+</center>
+
+    <script>
+
+var c = document.getElementById("myCanvas"); 
+var ctx = c.getContext("2d");
+
+var x = myCanvas.width/2;
+var y = myCanvas.height-30;
+var dx = 2;
+var dy = -2;
+var ballRadius = 10;
+
+var upPressed = false;
+var downPressed = false;
+var upPressed2 = false;
+var downPressed2 = false;
+
+var interval = setInterval(draw, 10);
+
+let width = 10;
+let height = 70;
+let ycoord = 10;
+let xcoord = 10;
+let ycoord2 = 10;
+let xcoord2 = 780;
+
+ctx.fillStyle = "white";
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawPaddle(){
+ctx.fillRect(xcoord,ycoord,width,height);
+}
+
+function drawPaddle2(){
+ctx.fillRect(xcoord2,ycoord2,width,height);
+}
+
+function draw() {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    drawBall();
+    drawPaddle();
+    drawPaddle2();
+    x += dx;
+    y += dy;
+
+    if(y + dy > myCanvas.height-ballRadius || y + dy < ballRadius) {
+    dy = -dy;
+}
+
+if (x + dx > myCanvas.width-ballRadius-width+1) {
+
+    if(y>ycoord2 && y<ycoord2+height){
+        dx=-dx;
+    }
+    else{
+        alert("GAME OVER");
+        document.location.reload();
+        clearInterval(interval);     
+    }
+
+}
+if( x + dx <ballRadius+width-1){
+    if(y>ycoord && y<ycoord+height){
+        dx=-dx;
+    }
+    else {
+        alert("GAME OVER");
+        document.location.reload();
+        clearInterval(interval);
+}
+    
+}
+
+if(downPressed2){
+     ycoord += 5;
+    if (ycoord + height > myCanvas.height){
+            ycoord = myCanvas.height - height;
+        }
+}
+if(upPressed2){
+    ycoord -= 5;
+    if (ycoord < 0){
+            ycoord = 0;
+        }
+}
+
+if(downPressed){
+  ycoord2 += 5;
+    if (ycoord2 + height > myCanvas.height){
+            ycoord2 = myCanvas.height - height;
+        }
+}
+
+if(upPressed){
+   ycoord2 -= 5;
+   if(ycoord2 < 0){
+       ycoord2=0;
+   }
+}
+console.log(ycoord);
+console.log(ycoord2);
+console.log(y);
+ctx.font = "15px arial";
+}
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyDownHandler(e){
+    if(e.key == "Down" || e.key == "ArrowDown") {
+        downPressed = true;
+    }
+    else if(e.key == "Up" || e.key == "ArrowUp") {
+        upPressed = true;
+    }
+    else if(e.key == "Down2" || e.key == "Control") {
+        downPressed2 = true;
+    }
+    else if(e.key == "Up2" || e.key == "Shift") {
+        upPressed2 = true;
+    }
+}
+
+function keyUpHandler(e){
+    if(e.key == "Down" || e.key == "ArrowDown") {
+        downPressed = false;
+    }
+    else if(e.key == "Up" || e.key == "ArrowUp") {
+        upPressed = false;
+    }
+    else if(e.key == "Down2" || e.key == "Control") {
+        downPressed2 = false;
+    }
+    else if(e.key == "Up2" || e.key == "Shift") {
+        upPressed2 = false;
+    }
+}
+
+    </script>
+</body>
+</html>
