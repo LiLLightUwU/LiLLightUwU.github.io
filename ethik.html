@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Ethik</title>
+    </head>
+<body style="background-color:#CAECCF;">
+<p>Bist du mutig? Vielleicht sogar zu mutig? Finde es mit folgendem kurzen Quiz heraus! <br> 
+    Der Philosoph Aristoteles schrieb schon im alten Griechenland über die Tugenden,<br>
+    bei denen es darum geht, wie man sich richtig verhält.</p>
+<br><br>
+<form>
+    <p>Du stehst frühs auf: "Mist", merkst du. Du hast gestern völlig vergessen, für Geschichte zu lernen. <br>
+         Bleibst du zuhause und drückst dich, lernst du noch schnell im Bus und in der Schule oder schreibst du dir einen Spicker?</p>
+  <input type="radio" id="zuhause" name="q1" value="ZUHAUSE">
+  <label for="zuhause">Zuhause bleiben</label><br>
+  <input type="radio" id="lernen" name="q1" value="LERNEN">
+  <label for="lernen">Lernen</label><br>
+  <input type="radio" id="spicker" name="q1" value="SPICKER">
+  <label for="spicker">Spicker</label> 
+  
+  </form>
+<br><br>
+  <form>
+    <p>Du arbeitest mit deinem Freund an einem Projekt. Du begehst dabei einen schwerwiegenden Fehler. Er spricht dich darauf an.<br>
+         Versteckst du dich vor der Kritik, nimmst du sie an oder fühlst du dich angegriffen und
+        versuchst, dich zu verteidigen?</p>
+  <input type="radio" id="verstecken" name="q2" value="VERSTECKEN">
+  <label for="verstecken">Verstecken</label><br>
+  <input type="radio" id="annehmen" name="q2" value="ANNEHMEN">
+  <label for="annehmen">Kritik annehmen</label><br>
+  <input type="radio" id="verteidigen" name="q2" value="VERTEIDIGEN">
+  <label for="verteidigen">Verteidigen</label> 
+  
+  </form>
+<br><br>
+<form>
+    <p>Du siehst, wie sich zwei Menschen auf der Straße körperlich auseinandersetzen. Gehst du einfach weg, rufst die Polizei
+         oder versuchst, dich in den Kampf einzumischen?</p>
+  <input type="radio" id="gehen" name="q3" value="GEHEN">
+  <label for="gehen">Gehen</label><br>
+  <input type="radio" id="polizei" name="q3" value="POLIZEI">
+  <label for="polizei">Polizei rufen</label><br>
+  <input type="radio" id="einmischen" name="q3" value="EINMISCHEN">
+  <label for="einmischen">Einmischen</label> 
+  
+  </form>
+  <br><br>
+  <form>
+    <p>Du bist mit deinen Freunden im Schwimmbad. Sie drängeln dich dazu, vom 10-Meter Turm zu springen. Eigentlich hast du Angst davor.<br>
+         Springst du, weil du nicht als schwach angesehen werden möchtest,
+        versuchst du, deinen Freunden deine Lage zu erklären oder überspielst du deine Angst mit Stolz und springst?</p>
+  <input type="radio" id="schwach" name="q4" value="SCHWACH">
+  <label for="schwach">Versuhen, keine Schwäche zu zeigen</label><br>
+  <input type="radio" id="reden" name="q4" value="REDEN">
+  <label for="reden">Mit Freunden reden</label><br>
+  <input type="radio" id="stolz" name="q4" value="STOLZ">
+  <label for="stolz">Stolz springen</label> 
+  
+  </form>
+  <br><br>
+  <button onclick="auswerten()">Auswerten</button>
+
+<p id="text"></p>
+
+  <script>
+
+    //q1 --------------------------------------------------------------------------------
+    var a1 = document.getElementById("zuhause");
+    var a2 = document.getElementById("lernen");
+    var a3 = document.getElementById("spicker");
+    //q1---------------------------------------------------------------------------------
+
+    //q2---------------------------------------------------------------------------------
+    var b1 = document.getElementById("verstecken");
+    var b2 = document.getElementById("annehmen");
+    var b3 = document.getElementById("verteidigen");
+    //q2---------------------------------------------------------------------------------
+
+    //q3---------------------------------------------------------------------------------
+    var c1 = document.getElementById("gehen");
+    var c2 = document.getElementById("polizei");
+    var c3 = document.getElementById("einmischen");
+    //q3---------------------------------------------------------------------------------
+
+    //q4---------------------------------------------------------------------------------
+    var d1 = document.getElementById("schwach");
+    var d2 = document.getElementById("reden");
+    var d3 = document.getElementById("stolz");
+    //q4---------------------------------------------------------------------------------
+
+
+    
+
+function auswerten(){
+    var score=20;
+    if(document.getElementById("zuhause").checked){
+        score-=5;
+    }
+
+    else if(document.getElementById("lernen").checked){
+
+    }
+
+    else if(document.getElementById("spicker").checked){
+        score += 5;
+    }
+    if(document.getElementById("verstecken").checked){
+        score-=5;
+    }
+
+    else if(document.getElementById("annehmen").checked){
+
+    }
+
+    else if(document.getElementById("verteidigen").checked){
+        score += 5;
+    }
+    if(document.getElementById("gehen").checked){
+        score-=5;
+    }
+
+    else if(document.getElementById("polizei").checked){
+
+    }
+
+    else if(document.getElementById("einmischen").checked){
+        score += 5;
+    }
+    if(document.getElementById("schwach").checked){
+        score-=5;
+    }
+
+    else if(document.getElementById("reden").checked){
+
+    }
+
+    else if(document.getElementById("stolz").checked){
+        score += 5;
+    }
+
+    if(score<11){
+        document.getElementById("text").innerHTML = "Nach Aristoteles' Tugenden wärst du zu feige. Du solltest nach ihm versuchen, mehr aus dir herauszukommen :) .";
+    }
+    else if(score>29){
+        document.getElementById("text").innerHTML = "Nach Aristoteles' Tugenden bist du zu mutig, du solltest nach ihm versuchen, weniger draufgängerisch zu sein :( . ";
+    }
+    else{
+        document.getElementById("text").innerHTML = "Genau richtig. Nach Aristoteles hast du die perfekte Mitte zwischen mutig und zurückhaltend gefunden!";
+    }
+    console.log(score);
+}
+  </script>
+</body>
+</html>
