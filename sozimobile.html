@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+    <title>sozi</title>
+    <link rel="stylesheet" href="/mystyle1.css">
+    </head>
+<body style="background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);">
+
+<img class="girl" src="/images/girl.png">
+
+<img class="boy" src="/images/boy.png">
+
+<form class="frage1">
+    <p>Zu welchem Milieu gehört Florentine-Rose?</p>
+  <input type="radio" id="exp" name="q1" value="EXP">
+  <label for="exp">Expeditive</label><br>
+  <input type="radio" id="post" name="q1" value="POST">
+  <label for="post">Postmaterielle</label><br>
+  <input type="radio" id="konsum" name="q1" value="KONSUM">
+  <label for="konsum">Konsummaterialisten</label> 
+  </form>
+
+  <form class="frage2">
+    <p>Zu welchem Milieu gehört Michel?</p>
+  <input type="radio" id="ada" name="q2" value="ADA">
+  <label for="ada">Adaptiv-Pragmatisch</label><br>
+  <input type="radio" id="pre" name="q2" value="PRE">
+  <label for="pre">Prekäre</label><br>
+  <input type="radio" id="tra" name="q2" value="TRA">
+  <label for="tra">Traditionell-bürgerliches Milieu</label> 
+  </form>
+
+  <button onclick="auswerten()" class="button-17">Auswerten</button>
+
+<p id="text1"></p>
+<p id="text2"></p>
+
+
+<script>
+
+function auswerten(){
+    if(document.getElementById("exp").checked){
+        document.getElementById("text1").innerHTML = "Richtig! Florentine gehört zum expeditiven Milieu!";
+    }
+    else if(document.getElementById("post").checked){
+        document.getElementById("text1").innerHTML = "Falsch :( Florentine fehlt es u.A. an genügend Gerechtigkeitssinn.";
+    }
+    else if(document.getElementById("konsum").checked){
+        document.getElementById("text1").innerHTML = "Falsch :( Dazu ist Florentine zu gut gebildet.";
+    }
+
+    if(document.getElementById("ada").checked){
+        document.getElementById("text2").innerHTML = "Falsch :( Michels Anpassungsbereitschaft ist dazu nicht genug ausgeprägt.";
+    }
+    else if(document.getElementById("pre").checked){
+        document.getElementById("text2").innerHTML = "Falsch :( Michel ist etwas gebildeter.";
+    }
+    else if(document.getElementById("tra").checked){
+        document.getElementById("text2").innerHTML = "Richtig! Michel gehört zum traditionell-bürgerlichen Milieu";
+    }
+}
+
+</script>
+
+</body>
+</html>
